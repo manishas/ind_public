@@ -1,0 +1,15 @@
+# Language setting
+language: python
+
+# Version number
+python:
+  - 2.7
+
+build:
+  pre_ci_boot:
+    image_name: drydock/u14pytall
+    image_tag: master
+    pull: true
+    options: '--privileged=true --net=bridge'
+  ci:
+    - python --version
