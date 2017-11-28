@@ -12,8 +12,8 @@ env:
   - ENV1: "boo"
     ENV2: "car"
   global:
-  - ENVG1: "goo"
-  - ENVG2: "doo"
+    - ENVG: "goo"
+    - ENVM: "doo"
 
 matrix:
 #  include:
