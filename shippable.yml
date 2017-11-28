@@ -23,8 +23,7 @@ matrix:
 #      ENV2: "bar"
 #      python: 3.6
   exclude:
-    - python: 3.6
-      env: ENV1="foo" ENV2="bar"
+    - env: ENV1="foo" ENV2="bar"
   allow_failures:
     - python: 3.2
 
