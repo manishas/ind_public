@@ -18,14 +18,13 @@ env:
       ENV2: "car"
 
 matrix:
-  include:
-    - ENV1: "foo"
-      ENV2: "bar"
-      python: 3.6
-#  exclude:
+#  include:
 #    - ENV1: "foo"
 #      ENV2: "bar"
 #      python: 3.6
+  exclude:
+    - env: ENV1="foo" 
+      python: 3.6
   allow_failures:
     - python: 3.2
 
