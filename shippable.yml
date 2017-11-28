@@ -4,7 +4,7 @@ language: python
 # Version number
 python:
   - 2.7
-#  - 3.2
+  - 3.2
 
 env:
   global:
@@ -12,10 +12,9 @@ env:
     - ENVM: "doo"
   matrix:
     - ENV1: "foo"
-#    ENV2: "bar"
+      ENV2: "bar"
     - ENV1: "boo"
-#    ENV2: "car"
-
+      ENV2: "car"
 
 #matrix:
 ##  include:
