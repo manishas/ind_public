@@ -42,10 +42,10 @@ build:
   ci:
     - python --version
     - |
-      echo "ENV1=" $ENV1
-      echo "ENV2=" $ENV2
-      echo "ENVG=" $ENVG
-      echo "$SHIPPABLE_PYTHON_VERSION=" $$SHIPPABLE_PYTHON_VERSION
+      echo "ENV1=$ENV1"
+      echo "ENV2=$ENV2"
+      echo "ENVG=$ENVG"
+      echo "$SHIPPABLE_PYTHON_VERSION=$$SHIPPABLE_PYTHON_VERSION"
     - |
       if [ "$ENV1" == "foo" ]; then
         if [ "$ENV2" != "bar" ]; then
@@ -61,7 +61,7 @@ build:
         fi
       fi
     - |
-      if [ "ENVG" != "goo" ]; then
+      if [ "$ENVG" != "goo" ]; then
         echo "Matrix was not setup correctly"
         exit 1
       fi
