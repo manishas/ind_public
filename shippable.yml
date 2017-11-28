@@ -4,12 +4,45 @@ language: python
 # Version number
 python:
   - 2.7
+  - 3.2
+
+env:
+  - ENV1: "foo"
+    ENV2: "bar"
+  - ENV1: "boo"
+    ENV2: "car"
+  global:
+    - ENVG: "goo"
+    - ENVG: "doo"
+
+matrix:
+#  include:
+#    - ENV1: "foo"
+#      python: 2.7
+  exclude:
+    - ENVG2: "doo"
+      python: 3.2
+  allow_failures:
+    - python: 3.2
+
+# the above combination should result in the following 6 matrix
+
+# $SHIPPABLE_PYTHON_VERSION=2.7 ENV1: "foo" ENV2: "bar" ENVG: "goo"
+# $SHIPPABLE_PYTHON_VERSION=2.7 ENV1: "boo" ENV2: "car" ENVG: "goo"
+# $SHIPPABLE_PYTHON_VERSION=2.7 ENV1: "foo" ENV2: "bar" ENVG: "doo"
+# $SHIPPABLE_PYTHON_VERSION=2.7 ENV1: "boo" ENV2: "car" ENVG: "doo"
+
+# $SHIPPABLE_PYTHON_VERSION=3.2 ENV1: "foo" ENV2: "bar" ENVG: "goo"
+# $SHIPPABLE_PYTHON_VERSION=3.2 ENV1: "boo" ENV2: "car" ENVG: "goo"
+# $SHIPPABLE_PYTHON_VERSION=3.2 ENV1: "foo" ENV2: "bar" ENVG: "doo"  EXCLUDE
+# $SHIPPABLE_PYTHON_VERSION=3.2 ENV1: "boo" ENV2: "car" ENVG: "doo"  EXCLUDE
+
 
 build:
-  pre_ci_boot:
-    image_name: drydock/u14pytall
-    image_tag: master
-    pull: true
-    options: '--privileged=true --net=bridge'
   ci:
     - python --version
+    - |
+      echo "ENV1=" $ENV1
+      echo "ENV1=" $ENV1
+      echo "ENVG=" $ENVG
+      echo "$SHIPPABLE_PYTHON_VERSION=" $$SHIPPABLE_PYTHON_VERSION
