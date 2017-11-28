@@ -4,27 +4,25 @@ language: python
 # Version number
 python:
   - 2.7
-  - 3.2
-  - 3.6
+#  - 3.2
+#  - 3.6
 
 env:
-  global:
-    - ENVG: "goo"
-  matrix:
-    - ENV1: "foo"
-      ENV2: "bar"
-    - ENV1: "boo"
-      ENV2: "car"
+#  global:
+#    - ENVG: "goo"
+#  matrix:
+  - ENV1: "foo"
+  - ENV1: "boo"
 
 matrix:
 #  exclude:
 #    - python: 3.6
 #      env: ENV1=foo ENV2=bar
-#  include:
-#    - python: 3.6
+  include:
+    - env: ENV1=foo
 #      env: ENV1=foo ENV2=bar
-  allow_failures:
-    - python: 3.2
+ # allow_failures:
+  #  - python: 3.2
 
 # the above combination should result in the following 6 matrix, 2 of which will
 # fail, but allow failures will still get the build to succeed
