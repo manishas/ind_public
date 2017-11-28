@@ -11,7 +11,7 @@ env:
     ENV2: "bar"
   - ENV1: "boo"
     ENV2: "car"
-global:
+  global:
   - ENVG: "goo"
   - ENVG: "doo"
 
