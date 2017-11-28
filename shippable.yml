@@ -8,14 +8,18 @@ python:
   - 3.6
 
 env:
-  global:
-    - ENVG: "goo"
-    - ENVM: "doo"
-  matrix:
-    - ENV1: "foo"
-      ENV2: "bar"
-    - ENV1: "boo"
-      ENV2: "car"
+#  global:
+#    - ENVG: "goo"
+#    - ENVM: "doo"
+#  matrix:
+#    - ENV1: "foo"
+#      ENV2: "bar"
+#    - ENV1: "boo"
+#      ENV2: "car"
+  - ENV1: "foo"
+    ENV2: "bar"
+  - ENV1: "boo"
+    ENV2: "car"
 
 matrix:
 #  include:
