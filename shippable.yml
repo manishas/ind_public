@@ -4,6 +4,7 @@ language: python
 # Version number
 python:
   - 2.7
+  - 3.2
   - 3.6
 
 env:
@@ -16,15 +17,15 @@ env:
     - ENV1: "boo"
       ENV2: "car"
 
-#matrix:
-##  include:
-##    - ENV1: "foo"
-##      python: 2.7
-#  exclude:
-#    - ENVG2: "doo"
-#      python: 3.2
-#  allow_failures:
-#    - python: 3.2
+matrix:
+#  include:
+#    - ENV1: "foo"
+#      python: 2.7
+  exclude:
+    - ENV1: "foo"
+      python: 3.6
+  allow_failures:
+    - python: 3.2
 
 # the above combination should result in the following 6 matrix
 
